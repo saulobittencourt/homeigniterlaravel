@@ -24,6 +24,9 @@
   </head>
 
   <body>
+
+          @if( Auth::check() )
+
       <div id="sidebar-wrapper">
 
          <div class=" nav-user"> 
@@ -37,13 +40,13 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div>  
 
           <div class="sidebar-menus">
             <ul class="ca-menu">
                 <li>
                     <a href="#">
-                        <span class="ca-icon">B</span>
+                        <span class="ca-icon">p</span>
                         <div class="ca-content">
                             <h2 class="ca-main">Tasks</h2>
                         </div>
@@ -51,7 +54,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class="ca-icon">C</span>
+                        <span class="ca-icon">E</span>
                         <div class="ca-content">
                             <h2 class="ca-main">Events</h2>
                         </div>  
@@ -59,29 +62,28 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class="ca-icon">I</span>
+                        <span class="ca-icon">c</span>
                         <div class="ca-content">
                             <h2 class="ca-main">Reminders</h2>
                         </div>  
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="ca-icon">D</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Logout</h2>
-                        </div>  
-                    </a>
+                  {{HTML::decode(HTML::link('user/logout','
+                    <span class="ca-icon">X</span>
+                      <div class="ca-content">
+                        <h2 class="ca-main">
+                          logout
+                        </h2>
+                      </div>  
+                  ',array("class" => "ca-main")))}}
                 </li>
             </ul>
           </div>
 
-          <!-- <div class="sidebar-nav-footer well-sidebar-footer">
-               {{HTML::decode(HTML::link('user/logout','<i class="icon-signout"></i>logout'))}}
-          </div> -->
-
       </div>
-
+          @endif
+      
     @yield('conteudo')
 
     <!-- Le javascript
@@ -103,12 +105,12 @@
 
     <script type="text/javascript">
       
-      $("#animate").click(function(){
-        $("#sidebar-wrapper").animate(
-            {
-              "width":"1px"
-            }, {"queue":false, "duration":500});
-      });
+      // $("#animate").click(function(){
+      //   $("#sidebar-wrapper").animate(
+      //       {
+      //         "width":"1px"
+      //       }, {"queue":false, "duration":500});
+      // });
 
       window.setTimeout(function(){
         $(".alert-danger").fadeTo(500,0).slideUp(500, function(){

@@ -16,10 +16,13 @@
 				"email" => Input::get("email"),
 				"password" => Input::get("password")
 			];
-			if (Auth::attempt($campos)) 
+			// var_dump(Auth::attempt($campos,true));
+			// exit;
+			if ( Auth::attempt($campos,true) ) 
 			{
-				return Redirect::route('home')->
-				with('logado','usuário logado');
+				// return Redirect::route('home');
+				return View::make('templates.default');
+
 			} else{
 				return Redirect::route('user')->
 				with('flash_error','E-mail e/ou senha inválidos, tente novamente')->

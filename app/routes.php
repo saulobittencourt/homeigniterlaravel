@@ -16,16 +16,18 @@ Route::get('/', array("as" => "home", function()
 	$view = View::make('templates.default');
 	return $view;
 
-}))->before('auth');;
+}))->before('auth');
 
 Route::get('user', array("as" => "user", function()
 {
+	// var_dump(Auth::check());
 	$view = View::make('login.index');
 	return $view;
 
 }));
 
 Route::post('user', array("as"=>"userPost","uses"=>"UserController@postLogin"));
+
 Route::get('user/logout', array('as'=>'logout',"uses"=>"UserController@getLogout"))->before('auth');
 
 Route::get( 'task/add',array("as" => "addTaskGet","uses"=>"TaskController@getAdd"))->before('auth');
