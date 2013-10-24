@@ -20,8 +20,7 @@
 			// exit;
 			if ( Auth::attempt($campos,true) ) 
 			{
-				// return Redirect::route('home');
-				return View::make('templates.default');
+				return Redirect::route('home');
 
 			} else{
 				return Redirect::route('user')->

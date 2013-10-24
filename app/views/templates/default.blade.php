@@ -45,12 +45,14 @@
           <div class="sidebar-menus">
             <ul class="ca-menu">
                 <li>
-                    <a href="#">
-                        <span class="ca-icon">p</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Tasks</h2>
-                        </div>
-                    </a>
+                    {{HTML::decode(HTML::link('tasks','
+                    <span class="ca-icon">p</span>
+                      <div class="ca-content">
+                        <h2 class="ca-main">
+                          Tasks
+                        </h2>
+                      </div>  
+                  ',array("class" => "ca-main")))}}
                 </li>
                 <li>
                     <a href="#">
@@ -73,7 +75,7 @@
                     <span class="ca-icon">X</span>
                       <div class="ca-content">
                         <h2 class="ca-main">
-                          logout
+                          Logout
                         </h2>
                       </div>  
                   ',array("class" => "ca-main")))}}
